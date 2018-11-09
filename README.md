@@ -2,10 +2,14 @@
 
 The app fetches itunes games in the "top-free" category.
 Only available only for South Korean market.
-Usage:
+
+Install:
 ```sh
 npm i app-store-game-radar
+```
 
+Usage:
+```sh
 const app = require("app-store-game-radar");
 app.getGameData({
     country: "kr",
