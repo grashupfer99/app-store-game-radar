@@ -1,0 +1,30 @@
+{
+  "name": "app-store-game-radar",
+  "version": "1.0.0",
+  "description": "app store game scraper ios game scraper",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grashupfer99/app-store-game-radar.git"
+  },
+  "keywords": [
+    "app",
+    "store",
+    "ios",
+    "itunes",
+    "games",
+    "scraper"
+  ],
+  "author": "Alexander Khant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grashupfer99/app-store-game-radar.git/issues"
+  },
+  "homepage": "https://github.com/grashupfer99/app-store-game-radar.git#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
