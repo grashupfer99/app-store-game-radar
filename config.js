@@ -19,8 +19,4 @@ const feedType = {
   topPaid: "top-ipad"
 };
 
-const country = {
-  kr: "kr"
-};
-
-module.exports = { mediaType, feedType, country };
+module.exports = { mediaType, feedType };
