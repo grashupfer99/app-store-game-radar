@@ -1,6 +1,8 @@
 ## App Store Game Radar
 
-This simple dependency-free Node.js module fetches the iTunes games through the 'RSS Feed Generator'. 
+[![npm](https://img.shields.io/npm/v/app-store-game-radar.svg)](https://www.npmjs.com/package/app-store-game-radar)
+
+This simple dependency-free Node.js module fetches iTunes games through the 'RSS Feed Generator'. 
 
 Feed settings: [here][feedSettings]
 
@@ -18,9 +20,9 @@ npm i app-store-game-radar
 ```sh
 const app = require("app-store-game-radar");
 
-app.store({
+app.AppStore({
     country: "kr",
-    feedType: app.type.feed.newGamesWelove (topFree, topPaid),
+    feedType: app.type.newGamesWelove (topFree, topPaid),
     num: 10 ~ 200
     explicit: true / false
   });
