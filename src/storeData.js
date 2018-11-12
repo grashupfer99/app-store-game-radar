@@ -1,4 +1,4 @@
-exports.gameInfo = data => {
+exports.gameData = data => {
   let result = [];
   data.results.map(item => {
     result.push({

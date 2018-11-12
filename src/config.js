@@ -1,5 +1,5 @@
 const media = {
-  iosApps: "ios-apps",
+  iosApps: "ios-apps"
 };
 
 const feed = {
