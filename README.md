@@ -1,22 +1,31 @@
 ## App Store Game Radar
 
-The app fetches itunes games in the "top-free" category.
-For now it's only available for a South Korean market.
+This simple dependency-free Node.js module fetches the iTunes games through the 'RSS Feed Generator'. 
 
-Install:
+Feed settings: [here][feedSettings]
+
+Feed types (games):
+- New Games We Love
+- Top Free
+- Top Paid
+
+# Install:
 ```sh
 npm i app-store-game-radar
 ```
 
-Usage:
+# Usage:
 ```sh
 const app = require("app-store-game-radar");
-app.getGameData({
+
+app.store({
     country: "kr",
-    mediaType: app.collection.mediaType.iosApps,
-    feedType: app.collection.feedType.topFree,
-    num: 10 // - 200
+    feedType: app.type.feed.newGamesWelove (topFree, topPaid),
+    num: 10 ~ 200
+    explicit: true / false
   });
 ```
 
 More improvements soon.
+
+[feedSettings]: <http://rss.itunes.apple.com/en-us>

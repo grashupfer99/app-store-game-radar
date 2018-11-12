@@ -24,7 +24,5 @@
     "url": "https://github.com/grashupfer99/app-store-game-radar.git/issues"
   },
   "homepage": "https://github.com/grashupfer99/app-store-game-radar.git#readme",
-  "dependencies": {
-    "axios": "^0.18.0"
-  }
+  "dependencies": {}
 }

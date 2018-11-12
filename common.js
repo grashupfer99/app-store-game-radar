@@ -1,6 +1,6 @@
 exports.gameInfo = data => {
   let result = [];
-  data.data.results.map(item => {
+  data.results.map(item => {
     result.push({
       id: item.trackId,
       appId: item.bundleId,
@@ -22,7 +22,7 @@ exports.gameInfo = data => {
       version: item.version,
       price: item.price,
       currency: item.currency,
-      free: item.formattedPrice === "무료" ? true : false,
+      free: item.price === 0 ? true : false,
       developerId: item.artistId,
       developer: item.artistName,
       developerUrl: item.artistViewUrl,
