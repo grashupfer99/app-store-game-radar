@@ -20,7 +20,7 @@ npm i app-store-game-radar
 ```sh
 const app = require("app-store-game-radar");
 
-app.AppStore({
+app.appStore({
     country: "kr",
     feedType: app.type.newGamesWelove (topFree, topPaid),
     num: 10 ~ 200
