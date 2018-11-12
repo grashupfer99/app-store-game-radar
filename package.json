@@ -1,6 +1,6 @@
 {
   "name": "app-store-game-radar",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "app store game scraper ios game scraper",
   "main": "index.js",
   "scripts": {
