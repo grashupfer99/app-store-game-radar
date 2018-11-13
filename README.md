@@ -1,22 +1,31 @@
 ## App Store Game Radar
+
+[![NPM](https://nodei.co/npm/app-store-game-radar.png)](https://nodei.co/npm/app-store-game-radar/)
+
 [![Build Status](https://travis-ci.org/grashupfer99/app-store-game-radar.svg?branch=master)](https://travis-ci.org/grashupfer99/app-store-game-radar)
+
 [![npm](https://img.shields.io/npm/v/app-store-game-radar.svg)](https://www.npmjs.com/package/app-store-game-radar)
 
-This simple dependency-free Node.js module fetches iTunes games through the 'RSS Feed Generator'. 
+This simple dependency-free Node.js module fetches iTunes games through the 'RSS Feed Generator'.
 
-Feed settings: [here][feedSettings]
+
+Feed settings: [here][feedsettings]
+
 
 Feed types (games):
+
 - New Games We Love
 - Top Free
 - Top Paid
 
 # Install:
+
 ```sh
 npm i app-store-game-radar
 ```
 
 # Usage:
+
 ```sh
 const app = require("app-store-game-radar");
 
@@ -30,11 +39,12 @@ app.gameScraper({
 
 # TODO:
 
-* [ ] Default input parameters 
-* [ ] Input validation
-* [ ] Scrape data for developerWebsite option
-* [ ] Unit testing
+- [ ] Default input parameters
+- [ ] Input validation
+- [ ] Scrape data for developerWebsite option
+- [ ] Unit testing
+
 
 More improvements soon.
 
-[feedSettings]: <http://rss.itunes.apple.com/en-us>
+[feedsettings]: http://rss.itunes.apple.com/en-us
