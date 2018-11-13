@@ -1,25 +1,26 @@
-const gameData = require("./storeData").gameData;
-const httpsGet = require("../src/httpsGet").httpsGet;
+const gameData = require("../src/gameData").gameData;
+const fetchData = require("../src/fetchData").fetchData;
 const type = require("../src/config");
 
-// Scrape game data from app-store
-exports.appStore = async paramsObj => {
-  paramsObj.explicit ? "explicit" : "non-explicit";
-  const fullDetailsLookUpUrl = "https://itunes.apple.com/lookup";
-  const appStoreUrl = `https://rss.itunes.apple.com/api/v1/${
-    paramsObj.country
-  }/${type.media.iosApps}/${paramsObj.feed}/${paramsObj.num}/${
-    paramsObj.explicit
-  }.json`;
+const gamesURL = 'https://rss.itunes.apple.com/api/v1/';
+const lookUpURL = "https://itunes.apple.com/lookup";
 
-  const getGameInfo = await httpsGet(appStoreUrl);
-  const getGameIDs = getGameInfo.feed.results.map(item => item.id);
-  const joinGameIDs = getGameIDs.map(item => item).join(",");
-  const fullDataUrl = `${fullDetailsLookUpUrl}?id=${joinGameIDs}&country=${
-    paramsObj.country
-  }`;
-  const getFullData = await httpsGet(fullDataUrl);
-  const result = gameData(getFullData);
+// Extract and join game IDs
+const joinGameIds = (data) => {
+  const ids = data.feed.results.map(game => game.id);
+  const joinIds = ids.map(id => id).join(',');
+  return joinIds;
+}
+
+// Scrape data from App-Store
+exports.gameScraper = async paramsObj => {
+  paramsObj.explicit ? "explicit" : "non-explicit";
+  const appStoreUrl = `${gamesURL}${paramsObj.country}/${type.media.iosApps}/${paramsObj.feedType}/${paramsObj.num}/${paramsObj.explicit}.json`;
+
+  const getGames = await fetchData(appStoreUrl);
+  const fullDataUrl = `${lookUpURL}?id=${joinGameIds(getGames)}&country=${paramsObj.country}`;  
+  const getFullGameData = await fetchData(fullDataUrl);
+  const result = gameData(getFullGameData);
 
   return result;
 };

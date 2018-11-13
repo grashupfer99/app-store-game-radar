@@ -20,13 +20,20 @@ npm i app-store-game-radar
 ```sh
 const app = require("app-store-game-radar");
 
-app.appStore({
-    country: "kr",
-    feedType: app.type.newGamesWelove (topFree, topPaid),
-    num: 10 ~ 200
+app.gameScraper({
+    country: "kr", // e.g. "us", "cn", "jp"
+    feedType: app.type.newGamesWelove, // topFree, topPaid
+    num: 10 ~ 200,
     explicit: true / false
-  });
+  }).then(data => console.log(data))
 ```
+
+# TODO:
+
+* [ ] Default input parameters 
+* [ ] Input validation
+* [ ] scrape developerWebsite
+* [ ] Unit testing
 
 More improvements soon.
 

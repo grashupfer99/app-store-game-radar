@@ -1,4 +1,4 @@
 const type = require("./src/config").feed;
-const app = require("./src/app").appStore;
+const gameScraper = require("./src/app").gameScraper;
 
-module.exports = { type, app };
+module.exports = { type, gameScraper };
