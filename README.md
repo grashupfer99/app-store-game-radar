@@ -1,6 +1,6 @@
 ## App Store Game Radar
 
-[![NPM](https://nodei.co/npm/app-store-game-radar.png)](https://nodei.co/npm/app-store-game-radar/)
+[![NPM](https://nodei.co/npm/app-store-game-radar.png?downloads=true)](https://nodei.co/npm/app-store-game-radar/)
 
 [![Build Status](https://travis-ci.org/grashupfer99/app-store-game-radar.svg?branch=master)](https://travis-ci.org/grashupfer99/app-store-game-radar)
 
