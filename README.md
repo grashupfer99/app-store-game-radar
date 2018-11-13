@@ -1,5 +1,5 @@
 ## App Store Game Radar
-
+[![Build Status](https://travis-ci.org/grashupfer99/app-store-game-radar.svg?branch=master)](https://travis-ci.org/grashupfer99/app-store-game-radar)
 [![npm](https://img.shields.io/npm/v/app-store-game-radar.svg)](https://www.npmjs.com/package/app-store-game-radar)
 
 This simple dependency-free Node.js module fetches iTunes games through the 'RSS Feed Generator'. 
