@@ -32,7 +32,7 @@ app.gameScraper({
 
 * [ ] Default input parameters 
 * [ ] Input validation
-* [ ] scrape developerWebsite
+* [ ] Scrape developerWebsite
 * [ ] Unit testing
 
 More improvements soon.
