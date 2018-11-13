@@ -1,6 +1,6 @@
 const https = require("https");
 
-exports.httpsGet = url => {
+exports.fetchData = url => {
   // Wrapper to return body through a Promise
   return new Promise((resolve, reject) => {
     https.get(url, res => {
