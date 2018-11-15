@@ -6,15 +6,16 @@
 
 [![npm](https://img.shields.io/npm/v/app-store-game-radar.svg)](https://www.npmjs.com/package/app-store-game-radar)
 
-This simple dependency-free Node.js module fetches iTunes games through the 'RSS Feed Generator'. My boss at work asked me to create a similar [scraper][scraper_inspiration] that retrieves only a list of games in a top-free category. After a successful implementation I decided to create a package and published it. Hopefully, later on I'll put more efforts into expanding this project.  
+This dependency-free Node.js module fetches iTunes games through the 'RSS Feed Generator'. I was asked at work to create a similar [scraper][scraper_inspiration] that retrieves only a list of games in a top-free category at iTunes game market. After a successful implementation I decided to create a npm package and to publish it. Hopefully, later on I'll put more efforts into expanding this small project.  
 
 
-Feed settings: [here][feedsettings]
+RSS Feed Generator Settings: [here][feedsettings]
 
 
 ### gameScraper
 
-Fetches a collection of game data from the iTunes.
+Fetches a collection of game data from the iTunes App Store.
+
 * `country`: the country code to get the data from its local App-Store market. E.g. `"us"`, `"cn"`, `"jp"`. Default: `'kr'`
 * `category`: a type of category to retrieve data from. E.g. `"newGamesWelove"`, `"topFree"`, `"topPaid"`, Default: `"topFree"`
 * `num`: the number of items to retrieve. Default: `'200'`
@@ -39,6 +40,7 @@ app.gameScraper({
     fullDetails: true
   }).then(data => console.log(data))
 ```
+
 
 # Results:
 
