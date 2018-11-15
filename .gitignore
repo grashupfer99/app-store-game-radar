@@ -2,7 +2,7 @@
 /node_modules
 
 # unit testing
-/test
+constants.txt
 
 # vscode
 /.vscode

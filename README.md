@@ -93,8 +93,8 @@ app.gameScraper({
 
 - [x] Default parameters
 - [x] fullDetails option
+- [x] Input validation
 - [ ] Scrape data for developerWebsite option
-- [ ] Unit testing
 
 
 More improvements soon.
