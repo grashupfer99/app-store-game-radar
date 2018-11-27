@@ -31,7 +31,7 @@ const paramValidator = (country, category, num) => {
   }
   // Num
   if(num > 200){
-    throw Error('num should be less than 200');
+    throw Error('num should be less than 200!');
   }
 
 }

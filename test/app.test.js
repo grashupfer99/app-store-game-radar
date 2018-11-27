@@ -28,32 +28,49 @@ describe("App.js", () => {
         })
 
     })
-    describe("validate params", () => {
+    describe("Validate input params", () => {
         describe("contry", () => {
             it("should be a function", () => {
                 expect(validate).to.be.a("function");
             })
             // Do for each country on the list
-            it("should return true when a country('kr', 'us', 'jp', or 'ch'...) is found", ()=> {
+            it("should return true for all countries on the list", ()=> {
+                let flag = true;
+              params.countries.map(country => {
+                  if((!validate(country, params.countries))){
+                    flag = false; 
+                    console.log('no match: ', country);
+                  }
+                  return flag;
+              })
+              expect(flag).to.be.true;  
+            })
+            it("should return true when the country is found", ()=> {
                 expect(validate('us' ,params.countries)).to.be.true;
             })
-            it("should return false when a country isn't on the list", ()=> {
+            it("should return false when the country isn't on the list", ()=> {
                 expect(validate('aa', params.countries)).to.be.false;
             })
         });
         describe("category", () => {
             const categories = Object.values(params.feed);
-            it("should return true when a category is found", ()=> {
+            it("should return true when the category is found", ()=> {
                 expect(validate(params.feed.newGamesWelove, categories)).to.be.true;
             })
-            it("should return false when a category isn't found", ()=>{
+            it("should return false when the category isn't found", ()=>{
                 expect(validate('/games/all', categories)).to.be.false;    
             })
         });
     });
     describe("paramValidator()", ()=> {
-        it("should throw error when country isn't found", ()=>{
+        it("should throw an error when the country isn't found", ()=>{
             expect(paramValidator.bind(paramValidator, 'aa', params.feed.topFree, 10)).to.throw("country not found!");
+        });
+        it("should throw an error when the category type isn't found", () => {
+            expect(paramValidator.bind(paramValidator, "kr", "category/games", 100)).to.throw("category type not found!");
+        })
+        it("should throw an error when num is bigger than 200", () => {
+            expect(paramValidator.bind(paramValidator, "kr", params.feed.topPaid, 201)).to.throw("num should be less than 200!")
         })
     })
 });

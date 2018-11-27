@@ -91,9 +91,7 @@ app.gameScraper({
 
 # TODO:
 
-- [x] Default parameters
-- [x] fullDetails option
-- [x] Input validation
+- [x] No screenshots for ipad issue 
 - [ ] Scrape data for developerWebsite option
 
 

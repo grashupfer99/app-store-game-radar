@@ -1,9 +1,14 @@
 "use strict";
 
-exports.gameData = (data, fullDetails) => {
+const maxLen = (a, b) => {
+    return a.length >= b.length ? a : b;
+}
+
+const gameData = (data, fullDetails) => {
     let result = [];
     if(fullDetails) {
         data.map(item => {
+            let scIpad = item.ipadScreenshotUrls, sc = item.screenshotUrls; 
             result.push({
                 id: item.trackId,
                 appId: item.bundleId,
@@ -34,7 +39,7 @@ exports.gameData = (data, fullDetails) => {
                 reviews: item.userRatingCount,
                 currentVersionScore: item.averageUserRatingForCurrentVersion,
                 currentVersionReviews: item.userRatingCountForCurrentVersion,
-                screenshots: item.ipadScreenshotUrls.map(imgUrl => imgUrl),
+                screenshots: maxLen(scIpad, sc).map(imgUrl => imgUrl),
                 ipadScreenshots: item.ipadScreenshotUrls.map(imgUrl => imgUrl),
                 appletvScreenshots: item.appletvScreenshotUrls.map(imgUrl => imgUrl),
                 supportedDevices: item.supportedDevices.map(device => device)
@@ -63,3 +68,5 @@ exports.gameData = (data, fullDetails) => {
     }
     return result;
 };
+
+module.exports = { maxLen, gameData };
