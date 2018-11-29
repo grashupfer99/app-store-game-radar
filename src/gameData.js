@@ -1,14 +1,13 @@
 "use strict";
 
-const maxLen = (a, b) => {
-    return a.length >= b.length ? a : b;
-}
+const maxLen = (a, b) => a.length >= b.length ? a : b;
 
 const gameData = (data, fullDetails) => {
     let result = [];
     if(fullDetails) {
         data.map(item => {
-            let scIpad = item.ipadScreenshotUrls, sc = item.screenshotUrls; 
+            let scIpad = item.ipadScreenshotUrls, sc = item.screenshotUrls;let score = item.averageUserRating;
+            let reviews = item.userRatingCount;
             result.push({
                 id: item.trackId,
                 appId: item.bundleId,
@@ -35,8 +34,8 @@ const gameData = (data, fullDetails) => {
                 developer: item.artistName,
                 developerUrl: item.artistViewUrl,
                 developerWebsite: undefined,
-                score: item.averageUserRating,
-                reviews: item.userRatingCount,
+                score: score === undefined ? 0 : score,
+                reviews: reviews === undefined ? 0 : reviews,
                 currentVersionScore: item.averageUserRatingForCurrentVersion,
                 currentVersionReviews: item.userRatingCountForCurrentVersion,
                 screenshots: maxLen(scIpad, sc).map(imgUrl => imgUrl),

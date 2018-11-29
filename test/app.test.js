@@ -1,11 +1,57 @@
 const expect = require("chai").expect;
 const joinGameIds = require("../src/app").joinGameIds;
+const gameScraper = require("../src/app").gameScraper;
 const fetchData = require("../src/fetchData").fetchData;
 const validate = require("../src/app").validate;
 const paramValidator = require("../src/app").paramValidator;
 const params = require('../src/config');
 
 describe("App.js", () => {
+
+    describe("gameScraper()", async() => {
+       
+
+        it("should return 200 items by default", async () => {
+            const num = 200;
+            const gameList = await gameScraper({
+                country: 'kr',
+                category: params.feed.topFree,
+                num: num
+            });
+            return expect(gameList.length).to.equal(200);
+        })
+
+        it("score should return a number", async () => {
+            const num = 200;
+            const gameList = await gameScraper({
+                country: 'kr',
+                category: params.feed.topFree,
+                num: num,
+                fullDetails: true
+            });
+
+            gameList.map(item => {
+                // expect(item.score).to.not.be.undefined;
+                return expect(item.score).to.be.a('number');
+            })
+        })
+
+        it("reviews should return a number", async () => {
+            const num = 200;
+            const gameList = await gameScraper({
+                country: 'kr',
+                category: params.feed.topFree,
+                num: num,
+                fullDetails: true
+            });
+
+            gameList.map(item => {
+                // expect(item.score).to.not.be.undefined;
+                return expect(item.reviews).to.be.a('number');
+            })
+        })
+    })
+
     describe("joinGameIds()", ()=> {
         it("should be a function", ()=>{
             expect(joinGameIds).to.be.a("function");
