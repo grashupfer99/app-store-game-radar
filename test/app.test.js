@@ -1,24 +1,24 @@
 const expect = require("chai").expect;
 const joinGameIds = require("../src/app").joinGameIds;
 const gameScraper = require("../src/app").gameScraper;
-const fetchData = require("../src/fetchData").fetchData;
+const getResultData = require("../src/getResultData").getResultData;
 const validate = require("../src/app").validate;
 const paramValidator = require("../src/app").paramValidator;
 const params = require('../src/config');
 
 describe("App.js", () => {
 
-    describe("gameScraper()", async() => {
+    describe("gameScraper()", () => {
        
 
-        it("should return 200 items by default", async () => {
+        it("should return 200 items", async () => {
             const num = 200;
             const gameList = await gameScraper({
                 country: 'kr',
                 category: params.feed.topFree,
                 num: num
             });
-            return expect(gameList.length).to.equal(200);
+            return expect(gameList.length).to.equal(num);
         })
 
         it("score should return a number", async () => {
@@ -30,26 +30,13 @@ describe("App.js", () => {
                 fullDetails: true
             });
 
-            gameList.map(item => {
+            gameList.map( async item => {
                 // expect(item.score).to.not.be.undefined;
-                return expect(item.score).to.be.a('number');
+                const score = await item.score
+                return expect(score).to.be.a('number');
             })
         })
 
-        it("reviews should return a number", async () => {
-            const num = 200;
-            const gameList = await gameScraper({
-                country: 'kr',
-                category: params.feed.topFree,
-                num: num,
-                fullDetails: true
-            });
-
-            gameList.map(item => {
-                // expect(item.score).to.not.be.undefined;
-                return expect(item.reviews).to.be.a('number');
-            })
-        })
     })
 
     describe("joinGameIds()", ()=> {
@@ -68,9 +55,9 @@ describe("App.js", () => {
         });
 
     });
-    describe("fetchData", ()=>{
+    describe("getResultData", ()=>{
         it("should be a function", () => {
-            expect(fetchData).to.be.a("function");
+            expect(getResultData).to.be.a("function");
         })
 
     })

@@ -1,10 +1,10 @@
 {
   "name": "app-store-game-radar",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "app store game scraper ios game scraper",
   "main": "index.js",
   "scripts": {
-    "test": "mocha || true"
+    "test": "mocha --timeout 20000"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,9 @@
     "url": "https://github.com/grashupfer99/app-store-game-radar.git/issues"
   },
   "homepage": "https://github.com/grashupfer99/app-store-game-radar.git#readme",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",

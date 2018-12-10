@@ -5,22 +5,21 @@ const maxLen = (a, b) => a.length >= b.length ? a : b;
 const gameData = (data, fullDetails) => {
     let result = [];
     if(fullDetails) {
-        data.map(item => {
-            let scIpad = item.ipadScreenshotUrls, sc = item.screenshotUrls;let score = item.averageUserRating;
-            let reviews = item.userRatingCount;
-            result.push({
+        result = data.map(item => {
+            let scIpad = item.ipadScreenshotUrls, sc = item.screenshotUrls;
+            return {
                 id: item.trackId,
                 appId: item.bundleId,
                 title: item.trackName,
                 url: item.trackViewUrl,
                 description: item.description,
                 icon: item.artworkUrl512,
-                genres: item.genres.map(genre => genre),
-                genreIds: item.genreIds.map(genreId => genreId),
+                genres: item.genres,
+                genreIds: item.genreIds,
                 primaryGenre: item.primaryGenreName,
                 primaryGenreId: item.primaryGenreId,
                 contentRating: item.trackContentRating,
-                languages: item.languageCodesISO2A.map(lang => lang),
+                languages: item.languageCodesISO2A,
                 size: item.fileSizeBytes,
                 requiredOsVersion: item.minimumOsVersion,
                 released: item.releaseDate,
@@ -33,36 +32,34 @@ const gameData = (data, fullDetails) => {
                 developerId: item.artistId,
                 developer: item.artistName,
                 developerUrl: item.artistViewUrl,
-                developerWebsite: undefined,
-                score: score === undefined ? 0 : score,
-                reviews: reviews === undefined ? 0 : reviews,
+                developerWebsite: null,
+                score: (!item.averageUserRating) ? 0 : item.averageUserRating,
+                reviews: (!item.userRatingCount) ? 0 : item.userRatingCount,
                 currentVersionScore: item.averageUserRatingForCurrentVersion,
                 currentVersionReviews: item.userRatingCountForCurrentVersion,
                 screenshots: maxLen(scIpad, sc).map(imgUrl => imgUrl),
-                ipadScreenshots: item.ipadScreenshotUrls.map(imgUrl => imgUrl),
-                appletvScreenshots: item.appletvScreenshotUrls.map(imgUrl => imgUrl),
-                supportedDevices: item.supportedDevices.map(device => device)
-            });
-            return result;
+                ipadScreenshots: item.ipadScreenshotUrls,
+                appletvScreenshots: item.appletvScreenshotUrls,
+                supportedDevices: item.supportedDevices
+            };
         });
     } else {
-        data.map(item => {
-            result.push({
+        result = data.map(item => {
+            return {
                 id: item.trackId,
                 appId: item.bundleId,
                 title: item.trackName,
                 url: item.trackViewUrl,
                 description: item.description,
                 icon: item.artworkUrl512,
-                genres: item.genres.map(genre => genre),
-                genreIds: item.genreIds.map(genreId => genreId),
+                genres: item.genres,
+                genreIds: item.genreIds,
                 released: item.releaseDate,
                 developerId: item.artistId,
                 developer: item.artistName,
                 developerUrl: item.artistViewUrl,
 
-            });
-            return result;
+            };
         });
     }
     return result;
