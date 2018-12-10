@@ -1,7 +1,7 @@
 "use strict";
 
 const gameData = require("../src/gameData").gameData;
-const fetchData = require("../src/fetchData").fetchData;
+const getResultData = require("./getResultData").getResultData;
 const type = require("../src/config");
 const countries = require('../src/config').countries;
 const gamesURL = "https://rss.itunes.apple.com/api/v1";
@@ -15,8 +15,7 @@ const joinGameIds = (data) => {
 };
 
 const validate = (input, data) => {
-  let found = false;
-  return data.indexOf(input) !== -1 ? found = true : found;
+  return data.indexOf(input) !== -1 ? true : false;
 } 
 
 const paramValidator = (country, category, num) => {
@@ -38,12 +37,12 @@ const paramValidator = (country, category, num) => {
 
 // Scrape data from App-Store
 const gameScraper = async ({country="us", category = type.feed.topFree, num = 200, fullDetails = false} = {}) => {
-    // Validation for input parameters
+    // Input params validation
     paramValidator(country, category, num);
     const appStoreUrl = `${gamesURL}/${country}/${type.media.iosApps}/${category}/${num}/explicit.json`;
-    const getGames = await fetchData(appStoreUrl);
+    const getGames = await getResultData(appStoreUrl);
     const fullDataUrl = `${lookUpURL}?id=${joinGameIds(getGames.feed.results)}&country=${country}`;  
-    const getFullGameData = await fetchData(fullDataUrl);
+    const getFullGameData = await getResultData(fullDataUrl);
     const result = gameData(getFullGameData.results, fullDetails);
 
     return result;
