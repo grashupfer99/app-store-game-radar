@@ -6,15 +6,15 @@
 [![NPM](https://nodei.co/npm/app-store-game-radar.png?downloads=true)](https://nodei.co/npm/app-store-game-radar/)
 
 
-This Node.js module fetches iTunes games through the 'RSS Feed Generator' and has a similar functionality with [scraper][scraper_inspiration].   
+This Node.js module fetches iTunes games through the 'RSS Feed Generator' and has a similar functionality with this [scraper][scraper_inspiration].   
 
 
-RSS Feed Generator Settings: [here][feedsettings]
+[RSS Feed Generator Settings][feedsettings]
 
 
 ### gameScraper
 
-Fetches a collection of game data from the iTunes App Store.
+The scraper fetches a collection of game data from the iTunes App Store.
 
 * `country`: the country code to get the data from its local App-Store market. E.g. `"us"`, `"cn"`, `"jp"`. Default: `'kr'`
 * `category`: a type of category to retrieve data from. E.g. `"newGamesWelove"`, `"topFree"`, `"topPaid"`, Default: `"topFree"`
